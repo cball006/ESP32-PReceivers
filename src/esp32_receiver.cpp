@@ -10,8 +10,8 @@ Adafruit_NeoPixel LED_RGB(1, 48, NEO_GRBW + NEO_KHZ800);
 
 // ================= CONFIG =================
 // Hub uses index 0
-// Receivers use 1–5
-static const uint8_t MY_PLAYER_INDEX = 1;
+// Receivers use 1–5 change player index to match the receiver's index player # minus 1 is the index.
+static const uint8_t MY_PLAYER_INDEX = 5;
 
 // ================= STATE =================
 uint8_t incomingStates[ESPNOW_PACKET_SIZE];
