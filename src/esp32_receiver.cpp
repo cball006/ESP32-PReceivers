@@ -11,7 +11,7 @@ Adafruit_NeoPixel LED_RGB(1, 48, NEO_GRBW + NEO_KHZ800);
 // ================= CONFIG =================
 // Hub uses index 0
 // Receivers use 1–5 change player index to match the receiver's index player # minus 1 is the index.
-static const uint8_t MY_PLAYER_INDEX = 5;
+static const uint8_t MY_PLAYER_INDEX = 1; // Change this for each receiver: 1 for Player 2, 2 for player 3 etc.
 
 // ================= STATE =================
 uint8_t incomingStates[ESPNOW_PACKET_SIZE];
@@ -64,7 +64,7 @@ void setup() {
   delay(500);
 
   LED_RGB.begin();
-  LED_RGB.show();
+  
 
   WiFi.mode(WIFI_STA);
   WiFi.disconnect();
@@ -91,6 +91,9 @@ esp_wifi_set_promiscuous(false);
   
   Serial.print("Receiver WiFi STA MAC: ");
   Serial.println(WiFi.macAddress());
+
+  LED_RGB.setPixelColor(0, LED_RGB.Color(0,255,255)); // Cyan for ready
+  LED_RGB.show();
 
 }
 
